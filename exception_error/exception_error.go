@@ -1,4 +1,4 @@
-package lib_utilities
+package exception_error
 
 import "fmt"
 
