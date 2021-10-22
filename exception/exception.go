@@ -8,7 +8,7 @@ import (
 )
 
 type ErrorHandle struct {
-	TracingId    string      `json:"tracing_id"`
+	ErrorCode    string      `json:"error_code"`
 	ErrorStatus  int         `json:"error_status"`
 	ErrorMessage string      `json:"error_message"`
 	ErrorInput   interface{} `json:"error_input"`
@@ -20,7 +20,7 @@ func ExceptionError(errorStatus int, err error) (int, ErrorHandle) {
 	var tracing_id, _ = uuid.NewV4()
 
 	return errorStatus, ErrorHandle{
-		TracingId:    tracing_id.String(),
+		ErrorCode:    tracing_id.String(),
 		ErrorStatus:  errorStatus,
 		ErrorMessage: fmt.Sprintf("%s", err.Error()),
 		ErrorInput:   err_input,
@@ -31,7 +31,7 @@ func ExceptionErrorValidation(errorStatus int, err error, err_input []map[string
 	var tracing_id, _ = uuid.NewV4()
 
 	return errorStatus, ErrorHandle{
-		TracingId:    tracing_id.String(),
+		ErrorCode:    tracing_id.String(),
 		ErrorStatus:  errorStatus,
 		ErrorMessage: fmt.Sprintf("%s", err.Error()),
 		ErrorInput:   err_input,
