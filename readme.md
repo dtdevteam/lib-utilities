@@ -3,6 +3,7 @@
 ---
 
 ```
+
 git add -A
 git commit -m '<message>'
 git tag vx.x.x
